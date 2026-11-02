@@ -1,0 +1,18 @@
+{
+  "name": "cloudsaver",
+  "private": true,
+  "version": "1.0.0",
+  "description": "CloudSaver - AWS Cost Optimization Scanner & Dashboard (read-only)",
+  "workspaces": ["backend", "frontend"],
+  "scripts": {
+    "dev": "concurrently -n api,web -c blue,green \"npm run dev -w backend\" \"npm run dev -w frontend\"",
+    "dev:demo": "DEMO_MODE=true npm run dev",
+    "scan": "npm run scan -w backend",
+    "typecheck": "npm run typecheck -w backend && npm run typecheck -w frontend",
+    "test": "npm test -w backend",
+    "build": "npm run build -w frontend"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
